@@ -1,0 +1,81 @@
+@import "tailwindcss";
+
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  color-scheme: dark;
+  background: #020617;
+  color: #ffffff;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  background: #020617;
+}
+
+/* Fix Monaco Editor scroll behavior */
+.monaco-editor {
+  overflow: hidden !important;
+}
+
+/* Allow scroll wheel to bubble through editors */
+.monaco-editor-container {
+  overflow: hidden;
+}
+
+/* Ensure page scrolling works */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Dotted background overlay applied via the root app container */
+.dotted-bg {
+  position: relative;
+}
+
+.dotted-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  /* Background dots only */
+  background-image: radial-gradient(circle, rgba(85, 0, 254, 0.8) 1px, transparent 1px);
+  background-size: 12px 12px;
+  opacity: 1;
+  z-index: 0;
+}
+
+/* Ensure content sits above the dotted overlay */
+.dotted-bg > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Keep Monaco editor surfaces opaque so dots stay behind the editor */
+.monaco-editor,
+.monaco-editor .overflow-guard,
+.monaco-editor .monaco-scrollable-element,
+.monaco-editor .monaco-editor-background,
+.monaco-editor .margin,
+.monaco-editor .lines-content,
+.monaco-editor .view-line,
+.monaco-editor .view-overlays {
+  background-color: inherit !important;
+}
+
+.monaco-editor-container {
+  background-color: inherit;
+}
