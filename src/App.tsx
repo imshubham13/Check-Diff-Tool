@@ -3,19 +3,15 @@ import EditorPanel from "./components/EditorPanel";
 import DiffViewer from "./components/DiffViewer";
 import { detectFormat } from "./utils/detectFormat";
 
-const defaultOriginal = `{
-   \\"name\\" : \\"alex\\"
-}`;
+const defaultOriginal = "";
 
-const defaultModified = `{
-  "firstname": "alex"
-}`;
+const defaultModified = "";
 
 function App() {
   const [original, setOriginal] = useState(defaultOriginal);
   const [modified, setModified] = useState(defaultModified);
   const [showDiff, setShowDiff] = useState(false);
-  const [isDark, setIsDark] = useState(true);
+  const [isDark, setIsDark] = useState(false);
   const diffSectionRef = useRef<HTMLDivElement | null>(null);
 
   const format = useMemo(
